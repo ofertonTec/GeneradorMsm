@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.contenido{
+    padding: 12px 32px;
+}
+.contenedor_inputs{
+    display: grid;
+    grid-auto-flow: row;
+    gap: 22px;
+}
+.contenedor_inputs label{
+    font-size: 18px;
+}
+.contenedor_inputs .input , select{
+    width: auto;
+    height: 32px;
+    font-size: 15px;
+    padding: 0px 10px;
+}
+.contenedor_inputs .button{
+    background-color: blue;
+    border-style: none;
+    height: 32px;
+    color: wheat;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.campaña{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#monto{
+    display: none;
+}
+
+
+.footer{
+    background-color: blue;
+    padding: 32px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
