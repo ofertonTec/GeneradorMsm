@@ -43,7 +43,7 @@ body{
     flex-direction: column;
     gap: 10px;
 }
-#monto{
+#monto_label , #monto_input{
     display: none;
 }
 
