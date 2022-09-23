@@ -12,24 +12,49 @@
 <body>
     <header class="header">
         <img class="imagen_principal" src="img/principal.png" alt="">
-        <p>Generador de mensajes</p> 
+        <p>Generador de mensajes</p>
     </header>
     <main class="contenido">
-       
-        <div class="contenedor_inputs">
-            <h1>Ingrese la información que se solicite</h1>
-            <select name="opciones_mensajes" id="opciones">
-                <option value="campaña" selected>Campaña</option>
-                <option value="Recordatorio">Recordatorio</option>
-            </select>
-            <form id="campaña" class="campaña" action="">
-                <label for="nombre">Nombres y Apellidos</label>
-                <input class="input" type="text" id="nombre" class="nombre" placeholder="Ingrese nombres y apellidos">
-                <label id="monto_label" for="monto">Monto S/.</label>
-                <input id="monto_input" class="input" type="text"  placeholder="Ingrese monto S/.">
-                <label for="telefono">Teléfono</label>
-                <input class="input" type="text" id="telefono" class="nombre" placeholder="Ingrese nro de teléfono">
-                <input id="boton" class="button" type="button" value="Generar">
+
+        <div class="container">
+            <p class=" titulo_form">Ingrese la información que se solicite</p>
+
+            <form  action="" class="form_container" id="campaña" >
+                <div class="form_item">
+                    <label for="carteras">Cartera</label>
+                    <select class="select" name="opciones_carteras" id="carteras">
+                        <option value="" selected>Seleccione</option>
+                        <option  >Caja Arequipa</option>
+                        <option >Banco Falabella</option>
+                        <option >Caja Andes</option>
+                        <option >Financiera Confianza</option>
+                    </select>
+                </div>
+                <div class="form_item">
+                    <label for="carteras">Tipo Mensaje</label>
+                    <select class="select" name="opciones_mensajes" id="opciones">
+                        <option value="" selected>Seleccione</option>
+                        <option  selected>Campaña</option>
+                        <option >Recordatorio</option>
+                    </select>
+                </div>
+
+                <div class="form_item">
+                    <label for="nombre">Nombres y Apellidos</label>
+                    <input type="text"  id="nombre" placeholder="Ingrese nombres y apellidos">
+                </div>
+                <div class="form_item" id="form_item_">
+                    <label for="monto">Monto S/.</label>
+                    <input type="text" id="monto" placeholder="Ingrese monto S/.">
+                </div>
+                <div class="form_item">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" placeholder="Ingrese nro de teléfono">
+                </div>
+                <div class="form_item">
+                    <button type="button" id="btnGenerar">Generar</button>
+                </div>
+                <ul id="lista_errores"></ul>
             </form>
 
         </div>
@@ -37,7 +62,7 @@
             <textarea id="mensaje" rows="5">
 
             </textarea>
-            <button id="copy">Click para copiar</button> 
+            <button id="copy">Click para copiar</button>
             <span id="respuesta"></span>
             <a href="" id="whatsapp"></a>
 

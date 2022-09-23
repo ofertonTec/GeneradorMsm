@@ -1,65 +1,91 @@
-let options= document.getElementById('opciones')
-let btn= document.getElementById('boton')
 
 
-let nombre= document.getElementById('nombre')
-let monto = document.getElementById('monto_input')
-let telefono= document.getElementById('telefono')
-let mensajeOutput= document.getElementById('mensaje')
-let whatsapp= document.getElementById('whatsapp')
 
 
-options.addEventListener('change', alertarCambio)
-function alertarCambio(){
-    let opcion= options.value
+btnGenerar.addEventListener('click', function () {
+    let form = document.querySelector(".form_container")
+    let cliente = crearObjeto(form)
+    let listaErrores = validarObjeto(cliente)
 
-    switch(opcion.toLowerCase()){
-        case 'campaña' :
-            document.getElementById("monto_label").style.display="none"
-            document.getElementById("monto_input").style.display="none"
-            break;
-        case 'recordatorio' :
-            document.getElementById("monto_label").style.display="flex"
-            document.getElementById("monto_input").style.display="flex"
-            break;
+    if (listaErrores.length > 0) {
+        exibirMensajeError(listaErrores)
+        return
+    } else {
+        generaMensaje(cliente)
+        form.reset()
+        var errores = document.querySelector(".mensaje_error")
+        errores.innerHTML = ""
     }
+})
+
+function crearObjeto(form) {
+    let cliente = {
+        carteras: form.carteras.value,
+        opciones: form.opciones.value,
+        nombre: form.nombre.value,
+        monto: form.monto.value,
+        telefono: form.telefono.value
+    }
+    return cliente;
 }
 
-btn.addEventListener('click', mostrarMensaje)
-function mostrarMensaje(){
-   let mensaje=""
-   
-    if(options.value.toLowerCase()=="campaña"){
-        mensaje='Sr(a).'+ nombre.value.toUpperCase()+ ' le saludamos por encargo del Banco Falabella, le estamos ofreciendo liquidar su CMR  por el importe mínimo de s/.'+
-        monto.value+' previa evaluación , Me confirma para enviar la propuesta y realice la cancelación y el tramite  de su CONSTANCIA DE NO ADEUDO.'
-    } else if(options.value.toLowerCase()=="recordatorio"){
-        mensaje= 'Buenos días Sr(a). '+ nombre.value.toUpperCase()+
-        ', le saluda Joel Copia por encargo del Banco Falabella, le estamos llamando para confirmar su pago pendiente para el día de hoy por el importe de S/.'+monto.value+
-        ' . Por este medio me hace el envío del comprobante para realizar el ajuste correspondiente.'
+function validarObjeto(cliente) {
+    let listaErrores = []
+    if (cliente.nombre.length == 0) {
+        listaErrores.push('El campo Nombres y Apellidos no debe estar vacio')
     }
-    
-    
-    let link = 'http://api.whatsapp.com/send?phone=51'+telefono.value
+    if (cliente.monto.length == 0) {
+        listaErrores.push('El campo Monto no debe estar vacio')
+    }
+    if (cliente.telefono.length == 0) {
+        listaErrores.push('El campo Telefono no debe estar vacio')
+    }
+    return listaErrores
+}
 
-    mensajeOutput.innerHTML=mensaje
+function exibirMensajeError(listaErrores) {
+    let ul = document.getElementById('lista_errores')
+    ul.innerHTML = ""
+    listaErrores.forEach(error => {
+        var li = document.createElement('li')
+        li.classList.add('mensaje_error')
+        li.textContent = error
+        ul.appendChild(li)
+
+    });
+}
+
+function generaMensaje(cliente) {
+    alert(cliente.carteras)
+    let textArea = document.getElementById('mensaje')
+    let mensaje = ""
+    if (cliente.opciones.toLowerCase() == 'campaña') {
+        mensaje = cliente.nombre.toUpperCase() + ' , '+ cliente.carteras.toUpperCase() +' tiene un Dscto Especial APROBADO, cancela tu Deuda con S/.' +
+            cliente.monto + ', ACTIVALO comunicándote a esta línea.\n\n Tramite su CONSTANCIA DE NO ADEUDO y evite el recalculo de su deuda y regularice su situación en INFOCORP'
+
+    }
+    if (cliente.opciones.toLowerCase() == 'recordatorio') {
+        mensaje = 'Que tal Sr(a):' + cliente.nombre.toUpperCase() + ' , '+ cliente.carteras.toUpperCase()+' le recuerda que tiene un compromiso pendiente para hoy, por el importe de S/.' +
+            cliente.monto + ',cualquier inconveniente con su pago me informa para poder ayudarle. Saludos Cordiales'
+    }
+    let whatsapp= document.getElementById('whatsapp')
+    let link = 'http://api.whatsapp.com/send?phone=51'+cliente.telefono
+    textArea.innerHTML = mensaje
     whatsapp.href=link
-    whatsapp.innerHTML="Enviar whatsapp a "+ nombre.value
-
+    whatsapp.innerHTML="Enviar whatsapp a "+ cliente.nombre.toUpperCase()
 }
-let rpta= document.getElementById('respuesta')
+
+let respuesta= document.getElementById('respuesta')
 let copiar= document.getElementById('copiar')
 
 copy.addEventListener('click', function(e) {
-    // Sleccionando el texto
     mensaje.select(); 
     try {
-        // Copiando el texto seleccionado
         var successful = document.execCommand('copy');
   
-        if(successful) rpta.innerHTML = 'Copiado!';
-        else rpta.innerHTML = 'Incapaz de copiar!';
+        if(successful) respuesta.innerHTML = 'Copiado!';
+        else respuesta.innerHTML = 'Incapaz de copiar!';
     } catch (err) {
         rpta.innerHTML = 'Browser no soportado!';
     }
  });
-
