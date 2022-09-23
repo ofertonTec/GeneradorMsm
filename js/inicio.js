@@ -56,12 +56,11 @@ function exibirMensajeError(listaErrores) {
 }
 
 function generaMensaje(cliente) {
-    alert(cliente.carteras)
     let textArea = document.getElementById('mensaje')
     let mensaje = ""
     if (cliente.opciones.toLowerCase() == 'campaña') {
-        mensaje = cliente.nombre.toUpperCase() + ' , '+ cliente.carteras.toUpperCase() +' tiene un Dscto Especial APROBADO, cancela tu Deuda con S/.' +
-            cliente.monto + ', ACTIVALO comunicándote a esta línea.\n\n Tramite su CONSTANCIA DE NO ADEUDO y evite el recalculo de su deuda y regularice su situación en INFOCORP'
+        mensaje = cliente.nombre.toUpperCase() +' ,'+ cliente.carteras.toUpperCase() +' tiene un Dscto Especial APROBADO, cancela tu Deuda con S/.' +
+            cliente.monto +',ACTIVALO comunicándote a esta línea.\n\n Tramite su CONSTANCIA DE NO ADEUDO y evite el recalculo de su deuda y regularice su situación en INFOCORP'
 
     }
     if (cliente.opciones.toLowerCase() == 'recordatorio') {
