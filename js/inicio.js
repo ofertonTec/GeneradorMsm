@@ -30,7 +30,14 @@ function crearObjeto(form) {
 }
 
 function validarObjeto(cliente) {
+    console.log(cliente)
     let listaErrores = []
+    if(cliente.carteras.length == 0){
+        listaErrores.push('El campo Cartera no debe estar vacio')
+    }
+    if(cliente.opciones.length == 0){
+        listaErrores.push('El campo Tipo Mensaje no debe estar vacio')
+    }
     if (cliente.nombre.length == 0) {
         listaErrores.push('El campo Nombres y Apellidos no debe estar vacio')
     }
@@ -60,12 +67,12 @@ function generaMensaje(cliente) {
     let mensaje = ""
     if (cliente.opciones.toLowerCase() == 'campaña') {
         mensaje = cliente.nombre.toUpperCase() +' ,'+ cliente.carteras.toUpperCase() +' tiene un Dscto Especial APROBADO, cancela tu Deuda con S/.' +
-            cliente.monto +',ACTIVALO comunicándote a esta línea.\n\n Tramite su CONSTANCIA DE NO ADEUDO y evite el recalculo de su deuda y regularice su situación en INFOCORP'
+            cliente.monto +',ACTIVALO comunicándote a por este medio.\n\n Tramite su CONSTANCIA DE NO ADEUDO y evite el recalculo de su deuda y regularice su situación en INFOCORP'
 
     }
     if (cliente.opciones.toLowerCase() == 'recordatorio') {
-        mensaje = 'Que tal Sr(a):' + cliente.nombre.toUpperCase() + ' , '+cliente.carteras.toUpperCase()+' le recuerda que tiene un compromiso pendiente para hoy, por el importe de S/.' +
-            cliente.monto + ',cualquier inconveniente con su pago me informa para poder ayudarle. Saludos Cordiales'
+        mensaje = 'Que tal Sr(a):'+ cliente.nombre.toUpperCase() + ', '+cliente.carteras.toUpperCase()+' le recuerda que tiene un compromiso pendiente para hoy, por el importe de S/.' +
+            cliente.monto + ',Cualquier inconveniente con su pago me informa para poder ayudarle. Saludos Cordiales.'
     }
     let whatsapp= document.getElementById('whatsapp')
     let link = 'http://api.whatsapp.com/send?phone=51'+cliente.telefono
@@ -87,4 +94,6 @@ copy.addEventListener('click', function(e) {
     } catch (err) {
         rpta.innerHTML = 'Browser no soportado!';
     }
+    let textArea= document.getElementById('mensaje')
+    textArea.innerHTML=""
  });
