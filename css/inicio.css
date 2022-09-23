@@ -38,7 +38,7 @@ body{
     font-size: 15px;
     padding: 0px 10px;
 }
-.contenedor_inputs .button{
+.contenedor_inputs .button,#copy{
     background-color: blue;
     border-style: none;
     height: 32px;
@@ -46,6 +46,7 @@ body{
     font-size: 15px;
     border-radius: 5px;
 }
+
 .campaña{
     display: flex;
     flex-direction: column;
@@ -55,6 +56,16 @@ body{
     display: none;
 }
 
+.contenedor_output{
+    margin: 10px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contenedor_output textarea{
+    padding: 15px;
+}
 
 .footer{
     background-color: blue;

@@ -21,20 +21,24 @@
                 <option value="campaña" selected>Campaña</option>
                 <option value="Recordatorio">Recordatorio</option>
             </select>
-            <div id="campaña" class="campaña">
+            <form id="campaña" class="campaña" action="">
                 <label for="nombre">Nombres y Apellidos</label>
                 <input class="input" type="text" id="nombre" class="nombre" placeholder="Ingrese nombres y apellidos">
                 <label id="monto_label" for="monto">Monto S/.</label>
-                <input id="monto_input" class="input" type="text" id="monto"  placeholder="Ingrese monto S/.">
+                <input id="monto_input" class="input" type="text"  placeholder="Ingrese monto S/.">
                 <label for="telefono">Teléfono</label>
                 <input class="input" type="text" id="telefono" class="nombre" placeholder="Ingrese nro de teléfono">
                 <input id="boton" class="button" type="button" value="Generar">
-            </div>
-          
+            </form>
+
         </div>
         <div class="contenedor_output">
-            <p class="mensaje">mensaje</p>
-            <a src="link_whatsapp">link_whatsapp</a>
+            <textarea id="mensaje" rows="5" cols="50">
+
+            </textarea>
+            <button id="copy">Click para copiar</button> 
+            <span id="respuesta"></span>
+            <a href="" id="whatsapp"></a>
 
         </div>
     </main>
@@ -42,7 +46,7 @@
         <p>Desarrollado by &copy; Joel Llacsahuache Copia 2022</p>
     </footer>
 
-<script src="js/inicio.js"></script>
+    <script src="js/inicio.js"></script>
 </body>
 
 </html>
