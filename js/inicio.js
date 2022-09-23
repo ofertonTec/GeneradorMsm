@@ -65,7 +65,7 @@ function generaMensaje(cliente) {
 
     }
     if (cliente.opciones.toLowerCase() == 'recordatorio') {
-        mensaje = 'Que tal Sr(a):' + cliente.nombre.toUpperCase() + ' , '+ cliente.carteras.toUpperCase()+' le recuerda que tiene un compromiso pendiente para hoy, por el importe de S/.' +
+        mensaje = 'Que tal Sr(a):' + cliente.nombre.toUpperCase() + ' , '+cliente.carteras.toUpperCase()+' le recuerda que tiene un compromiso pendiente para hoy, por el importe de S/.' +
             cliente.monto + ',cualquier inconveniente con su pago me informa para poder ayudarle. Saludos Cordiales'
     }
     let whatsapp= document.getElementById('whatsapp')
