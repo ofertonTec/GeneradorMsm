@@ -94,7 +94,7 @@ function generaMensaje(cliente) {
                 monto+'* , Previa evaluación, *ACTIVALO* comunicándote por este medio.\n\n Tramite su *CONSTANCIA DE NO ADEUDO* y Evite seguir mantendiendo un reporte negativo en las centrales de riesgo.Dscto válido hasta: *'+fecha+'*'
             break
         case 'recordatorio':
-            mensaje = 'Que tal Sr(a): *'+nombre+'*, *'+ cartera +'* le recuerda que tiene un compromiso pendiente para el *'+fecha+'* , por el importe de *S/.'+
+            mensaje = 'Que tal Sr(a): *'+nombre+'*, *'+cartera +'* le recuerda que tiene un compromiso pendiente para el *'+fecha+'* , por el importe de *S/.'+
                 monto+'*, evite el recalculo de su deuda pagando en la fecha establecida. \n\nCualquier inconveniente con su pago me informa para poder ayudarle. Saludos Cordiales.'
             break
         case 'extra judicial':
