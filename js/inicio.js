@@ -89,7 +89,7 @@ function generaMensaje(cliente) {
             mensaje = nombre + ', *'+cartera+'*, tienes un SUPER Dscto *APROBADO*, cancela tu Deuda con *S/.'+
                 monto+'*, *ACTIVALO* comunicándote por este medio.\n\n Tramite su *CONSTANCIA DE NO ADEUDO* y Evite seguir mantendiendo un reporte negativo en las centrales de riesgo.Dscto válido hasta: *'+fecha+'*'
             break;
-        case 'excepcion':
+        case 'excepción':
             mensaje = nombre + ', *'+cartera+'* tiene un Dscto Especial *PRE_APROBADO*, cancela tu Deuda con *S/.'+
                 monto+'* , Previa evaluación, *ACTIVALO* comunicándote por este medio.\n\n Tramite su *CONSTANCIA DE NO ADEUDO* y Evite seguir mantendiendo un reporte negativo en las centrales de riesgo.Dscto válido hasta: *'+fecha+'*'
             break
