@@ -1,7 +1,8 @@
 // Variables generales
 let respuesta = document.getElementById('respuesta')
-let copiar = document.getElementById('copiar')
+let btnCopiar = document.getElementById('copy')
 let opcTipoMsje = document.getElementById('opciones')
+let linkWhatsapp= document.getElementById('whatsapp')
 
 let tipoMensaje=['Seleccione','Campaña','Excepción','Recordatorio','Extra Judicial']
 let campañas=['Seleccione','Caja Arequipa','Caja Andes','Financiera Confianza','Banco Falabella']
@@ -51,7 +52,7 @@ function validarObjeto(cliente) {
     let listaErrores = []
     let opc = cliente.opciones.toLowerCase()
 
-    if (cliente.carteras.length == 0) {
+    if (cliente.carteras.length != 0 && cliente.carteras.toLowerCase()=='seleccione') {
         listaErrores.push('Seleccione la cartera')
     }
     if (opc == 'extra judicial') {
@@ -64,7 +65,7 @@ function validarObjeto(cliente) {
         }
 
     }
-    if (cliente.opciones.length == 0) {
+    if (cliente.opciones.length != 0 && cliente.opciones.toLowerCase()=='seleccione') {
         listaErrores.push('Seleccione el tipo de mensaje')
     }
     if (cliente.nombre.length == 0) {
@@ -106,7 +107,7 @@ function generaMensaje(cliente) {
             break;
         case 'excepción':
             mensaje = nombre + ', *'+cartera+'* tiene un Dscto Especial *PRE_APROBADO*, cancela tu Deuda con *S/.'+
-                monto+'* , Previa evaluación, *ACTIVALO* comunicándote por este medio.\n\n Tramite su *CONSTANCIA DE NO ADEUDO* y Evite seguir mantendiendo un reporte negativo en las centrales de riesgo.Dscto válido hasta: *'+fecha+'*'
+                monto+'* , Previa evaluación, *ACTIVALO* comunicándote por este medio.\n\n Tramite su *CONSTANCIA DE NO ADEUDO* y Evite seguir manteniendo un reporte negativo en las centrales de riesgo.Dscto válido hasta: *'+fecha+'*'
             break
         case 'recordatorio':
             mensaje = 'Que tal Sr(a): *'+nombre+'* , '+cartera +' le recuerda que tiene un compromiso pendiente para el *'+fecha+'* , por el importe de *S/.'+
@@ -125,7 +126,7 @@ function generaMensaje(cliente) {
     whatsapp.innerHTML = "Enviar whatsapp a " + cliente.nombre.toUpperCase()
 }
 
-copy.addEventListener('click', function (e) {
+btnCopiar.addEventListener('click', function (e) {
     mensaje.select();
     try {
         var successful = document.execCommand('copy');
