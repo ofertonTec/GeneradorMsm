@@ -3,6 +3,21 @@ let respuesta = document.getElementById('respuesta')
 let copiar = document.getElementById('copiar')
 let opcTipoMsje = document.getElementById('opciones')
 
+let tipoMensaje=['Seleccione','Campaña','Excepción','Recordatorio','Extra Judicial']
+let campañas=['Seleccione','Caja Arequipa','Caja Andes','Financiera Confianza','Banco Falabella']
+crearListEtiquetaOption(tipoMensaje,'.tipo_mensaje')
+crearListEtiquetaOption(campañas,'.cartera')
+
+function crearListEtiquetaOption(options,clase){
+    let select=document.querySelector(clase)
+    for(let i=0; i<options.length;i++){
+        let option=document.createElement('option')
+        option.innerText=options[i];
+        select.appendChild(option)
+    }
+}
+
+
 btnGenerar.addEventListener('click', function () {
     let form = document.querySelector(".form_container")
     let cliente = crearObjeto(form)
