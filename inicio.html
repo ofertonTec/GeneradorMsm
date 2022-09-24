@@ -11,7 +11,7 @@
 
 <body>
     <header class="header">
-        <img class="imagen_principal" src="img/principal.png" alt="">
+        <img class="imagen_principal" src="img/logo.png" alt="">
         <p>Generador de mensajes</p>
     </header>
     <main class="contenido">
@@ -19,33 +19,42 @@
         <div class="container">
             <p class=" titulo_form">Ingrese la información que se solicite</p>
 
-            <form  action="" class="form_container" id="campaña" >
+            <form action="" class="form_container" id="campaña">
                 <div class="form_item">
                     <label for="carteras">Cartera</label>
                     <select class="select" name="opciones_carteras" id="carteras">
                         <option value="" selected>Seleccione</option>
-                        <option  >Caja Arequipa</option>
-                        <option >Banco Falabella</option>
-                        <option >Caja Andes</option>
-                        <option >Financiera Confianza</option>
+                        <option>Caja Arequipa</option>
+                        <option>Banco Falabella</option>
+                        <option>Caja Andes</option>
+                        <option>Financiera Confianza</option>
                     </select>
                 </div>
                 <div class="form_item">
                     <label for="carteras">Tipo Mensaje</label>
                     <select class="select" name="opciones_mensajes" id="opciones">
                         <option value="" selected>Seleccione</option>
-                        <option >Campaña</option>
-                        <option >Recordatorio</option>
+                        <option>Campaña</option>
+                        <option>Excepción</option>
+                        <option>Recordatorio</option>
+                        <option>Extra Judicial</option>
                     </select>
                 </div>
-
                 <div class="form_item">
                     <label for="nombre">Nombres y Apellidos</label>
-                    <input type="text"  id="nombre" placeholder="Ingrese nombres y apellidos">
+                    <input type="text" id="nombre" placeholder="Ingrese nombres y apellidos">
                 </div>
-                <div class="form_item" id="form_item_">
+                <div class="form_item form_monto" >
                     <label for="monto">Monto S/.</label>
                     <input type="text" id="monto" placeholder="Ingrese monto S/.">
+                </div>
+                <div class="form_item form_dni" >
+                    <label for="dni">DNI.</label>
+                    <input type="text" id="dni" placeholder="Ingrese nro DNI">
+                </div>
+                <div class="form_item form_fecha">
+                    <label for="fecha" class="fecha">Fecha limite de Campaña ó excepción:</label>
+                    <input type="date" id="fecha" value="2022-10-10"  min="2020-01-01" max="2030-12-31">
                 </div>
                 <div class="form_item">
                     <label for="telefono">Teléfono</label>

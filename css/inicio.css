@@ -47,13 +47,25 @@ body{
     display: flex;
     flex-direction: column;
 }
+.fecha_form{
+    display: flex;
+}
+.form_dni{
+    display: none;
+}
+.form_monto{
+    display: flex;
+}
 .form_item label{
-    font-size: 18px;
+    font-size: 16px;
 }
 .form_item input, .select{
     height: 32px;
     padding: 0 10px;
-    font-size: 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    border-style: none;
+    border: 1px solid rgb(180, 205, 214);
 }
 .form_item button , #copy{
     background-color: blue;
@@ -61,6 +73,7 @@ body{
     border-style: none;
     color: white;
     font-size: 16px;
+    border-radius: 5px;
 }
 .mensaje_error {
     list-style: none;
